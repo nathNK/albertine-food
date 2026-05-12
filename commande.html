@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Commander - Albertine Food</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+
+        <h1 class="logo">Albertine Food</h1>
+
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- COMMANDE -->
+    <section class="commande">
+
+        <h2>Passer une commande</h2>
+
+        <form onsubmit="sendWhatsApp(event)">
+    
+    <input id="nom" type="text" placeholder="Votre nom" required>
+    
+    <input id="tel" type="tel" placeholder="Numéro" required>
+    
+    <select id="plat" required>
+        <option value="">Choisir un plat</option>
+        <option>Poulet braisé</option>
+        <option>Pizza royale</option>
+        <option>Burger spécial</option>
+    </select>
+    
+    <input id="quantite" type="number" placeholder="Quantité" min="1" required>
+    
+    <textarea id="adresse" placeholder="Adresse" required></textarea>
+    
+    <button type="submit">Commander</button>
+    
+            </form>
+            
+            <script>
+                function sendWhatsApp(e) {
+                    e.preventDefault();
+                    
+                    let nom = document.getElementById("nom").value;
+                    let tel = document.getElementById("tel").value;
+                    let plat = document.getElementById("plat").value;
+                    let quantite = document.getElementById("quantite").value;
+                    let adresse = document.getElementById("adresse").value;
+                    
+                    let message =
+                        `Nouvelle commande Albertine Food :
+            Nom: ${nom}
+            Téléphone: ${tel}
+            Plat: ${plat}
+            Quantité: ${quantite}
+            Adresse: ${adresse}`;
+                    
+                    let url = "https://wa.me/22901?text=" + encodeURIComponent(message);
+                    
+                    window.open(url, "_blank");
+                }
+            </script>
+
+<div class="paiement">
+
+<h3>Paiement Mobile Money</h3>
+
+<p>MTN Mobile Money : 01 52 84 08 30</p>
+<p>Moov Money : 01 94 60 44 52</p>
+
+<p>
+    ⚠️ Après paiement, envoyez la preuve sur WhatsApp
+</p>
+
+</div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Albertine Food</p>
+    </footer>
+
+</body>
+</html>
